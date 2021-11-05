@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AvailableAppointment = () => {
+const AvailableAppointment = ({date}) => {
     return (
         <div>
-            <h2>AvailableAppointment</h2>
+            <h2>AvailableAppointment {date.toDateString()}</h2>
         </div>
     );
 };
