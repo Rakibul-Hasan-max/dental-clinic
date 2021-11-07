@@ -4,6 +4,9 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import { TextFieldsOutlined } from '@mui/icons-material';
+import { Button } from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -17,10 +20,15 @@ const style = {
   p: 4,
 };
 
-const BookingModal = ({open, handleClose, booking}) => {
+const BookingModal = ({open, handleClose, booking, date}) => {
 
     const {name, time} = booking;
 
+    const handleBookSend = e => {
+        alert ('submitted');
+        handleClose();
+        e.preventDefault();
+    }
     return (
         <Modal
             aria-labelledby="transition-modal-title"
@@ -38,9 +46,41 @@ const BookingModal = ({open, handleClose, booking}) => {
                 <Typography id="transition-modal-title" variant="h6" component="h2">
                 {name}
                 </Typography>
-                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                {time}
-                </Typography>
+                <form onSubmit={handleBookSend}>
+                    <TextField
+                        disabled
+                        sx = {{width: '90%', m: 1}}
+                        id="outlined-size-small"
+                        defaultValue={time}
+                        size='small'
+                        />
+                    <TextField
+                        sx = {{width: '90%', m: 1}}
+                        id="outlined-size-small"
+                        defaultValue='Your name'
+                        size='small'
+                        />
+                    <TextField
+                        sx = {{width: '90%', m: 1}}
+                        id="outlined-size-small"
+                        defaultValue='Your email'
+                        size='small'
+                        />
+                    <TextField
+                        sx = {{width: '90%', m: 1}}
+                        id="outlined-size-small"
+                        defaultValue='Phone number'
+                        size='small'
+                        />
+                    <TextField
+                        disabled
+                        sx = {{width: '90%', m: 1}}
+                        id="outlined-size-small"
+                        defaultValue={date.toDateString()}
+                        size='small'
+                        />
+                    <Button type="submit" variant="contained" sx={{mt:2}} style={{backgroundColor: '#14DDCF'}}>SEND</Button>
+                </form>
             </Box>
             </Fade>
         </Modal>
