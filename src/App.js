@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
 import Appointment from './Pages/Appointment/Appointment/Appointment';
 import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <AuthProvider>
+        <Router>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -21,11 +24,15 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
             {/* <Route path="*">
               <NotFound></NotFound>
             </Route> */}
             </Switch>
         </Router>
+      </AuthProvider>
     </div>
   );
 }
