@@ -27,9 +27,9 @@ const Navigation = () => {
                         <MenuIcon />
                     </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Dental-Clinic
+                    <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Dental-Clinic</Link>
                 </Typography>
-                    <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
+                    <Link to="/appointment" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit">Appointment</Button></Link>
                     {
                         user?.email ?
                             <Button onClick={logout} color="inherit">Logout</Button>
